@@ -84,8 +84,20 @@ public class EditStudentController {
 
     public void getChoiceEdit(ActionEvent event) {
         /* TODO: ??? complete the 3 if... statements using event*/
-        mod1S = mod1ChoiceEdit.getValue();
-        mod2S = mod2ChoiceEdit.getValue();
-        mod3S = mod3ChoiceEdit.getValue();
+        if (mod1ChoiceEdit.getValue() != null){
+            mod1S = mod1ChoiceEdit.getValue();
+        }else {
+            mod1S = mod1Edit.getText();
+        }
+        if (mod2ChoiceEdit.getValue() != null){
+            mod2S = mod2ChoiceEdit.getValue();
+        }else {
+            mod2S = mod2Edit.getText();
+        }
+        if (mod3ChoiceEdit.getValue() != null){
+            mod3S = mod3ChoiceEdit.getValue();
+        }else {
+            mod3S = mod3Edit.getText();
+        }
     }
 }
