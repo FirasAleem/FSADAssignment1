@@ -18,7 +18,7 @@ public class Student {
         this.module3 = module3;
     }
     /* ensure that all getters are included here
-    */
+     */
 
     public String getStudId() {
         return studId;
@@ -39,8 +39,10 @@ public class Student {
     public String getModule3() {
         return module3;
     }
-    /* include a toString() that returns studId
-    */
+
+    /* include a toString() that returns studId*/
     @Override
-    public String toString(){return studId;}
+    public String toString() {
+        return studId;
+    }
 }

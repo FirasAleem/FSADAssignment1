@@ -12,22 +12,19 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 
 public class StudentData {
-    /*  include an instance of StudentData
-    */
+    /*  include an instance of StudentData*/
     private static StudentData instance = new StudentData();
     private static String filename = "student-data.txt";
 
     private ObservableList<Student> students;
 
     public static StudentData getInstance() {
-        /* complete the getter for the instance created
-        */
+        /* complete the getter for the instance created*/
         return instance;
     }
 
     public ObservableList<Student> getStudents() {
-        /* complete the getter for the observable arraylist
-        */
+        /* complete the getter for the observable arraylist*/
         return students;
     }
 
@@ -40,8 +37,7 @@ public class StudentData {
 
         try {
             while ((input = br.readLine()) != null) {
-                /*  split each input line using a tab
-                 */
+                /*  split each input line using a tab*/
                 String[] studentItem = input.split("\t");
                 /* using the String create each piece of data so that all the instance variables
                          have a value accordingly
@@ -51,11 +47,9 @@ public class StudentData {
                 String mod1 = studentItem[2];
                 String mod2 = studentItem[3];
                 String mod3 = studentItem[4];
-                /*  complete the call to the constructor by passing in the parameters
-                 */
+                /*  complete the call to the constructor by passing in the parameters*/
                 Student studDataItem = new Student(studId, yearStudy, mod1, mod2, mod3);
-                /* add the studentDataItem to the students array
-                 */
+                /* add the studentDataItem to the students array*/
                 //>include the statement here
                 students.add(studDataItem);
             }
@@ -92,13 +86,14 @@ public class StudentData {
         }
     }
 
-    public void addStudentData(Student studentToAdd){
+    public void addStudentData(Student studentToAdd) {
         /* complete the addStudentData so that a student can be added
                  to students
          */
         students.add(studentToAdd);
     }
-    public void deleteStudent(Student stu){
+
+    public void deleteStudent(Student stu) {
         /* complete the addStudentData so that a student can be removed
                  from students
          */
