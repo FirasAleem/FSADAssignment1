@@ -16,14 +16,30 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.ChoiceBox?>
 <!--include a BorderPane here-->
-<BorderPane >
+<BorderPane fx:controller="fsd.assignment.assignment1.Controller" xmlns:fx="http://javafx.com/fxml" fx:id="mainWindow">
     <!--include a top section-->
     <top>
         <!--include a GridPane<> with a vertical and horizontal gap of 20-->
-        <GridPane > <!--these correspond to the variables in the Controller-->
+        <GridPane xmlns:fx="http://javafx.com/fxml" hgap="20" vgap="20"> <!--these correspond to the variables in the Controller-->
             <!--include the labels, textfields and choicebox elements here-->
             <!--include the Button<> with the onAction="addStudentData", no fx:id is required-->
             <!--the last element is the <Label> you may not notice this on the image-->
+            <Label text="StudentID" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <Label text="Year of Study" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="studId"/>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="yearStudy"/>
+            <Button GridPane.columnIndex="1" GridPane.rowIndex="3" text="Add" onAction="#addStudentData" alignment="CENTER"/>
+
+            <Label text="Module Option 1" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <Label text="Module Option 2" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <Label text="Module Option 3" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+            <Label fx:id="validateStudent" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+
+            <ChoiceBox GridPane.columnIndex="3" GridPane.rowIndex="0" fx:id="mod1Choice"/>
+            <ChoiceBox GridPane.columnIndex="3" GridPane.rowIndex="1" fx:id="mod2Choice"/>
+            <ChoiceBox GridPane.columnIndex="3" GridPane.rowIndex="2" fx:id="mod3Choice"/>
+
         </GridPane>
     </top>
 
@@ -32,7 +48,7 @@
             <Label>
 
             </Label>
-            <ListView fx:id="studentListView" />
+            <ListView xmlns:fx="http://javafx.com/fxml" fx:id="studentListView"/>
             <Label>
 
             </Label>
@@ -43,6 +59,18 @@
         <VBox>
             <GridPane hgap="20">
                 <!--include the Labels as well as the fx:id's, see Controller class as well as image-->
+                <Label text="Year of Study" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <Label fx:id="yearStudyView" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+                <Label text="Module Option 1" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label fx:id="mod1View" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Module Option 2" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <Label fx:id="mod2View" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+                <Label text="Module Option 3" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                <Label fx:id="mod3View" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
             </GridPane>
         </VBox>
     </bottom>

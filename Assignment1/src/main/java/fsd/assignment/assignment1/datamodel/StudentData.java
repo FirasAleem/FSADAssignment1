@@ -43,7 +43,6 @@ public class StudentData {
                 /*  split each input line using a tab
                  */
                 String[] studentItem = input.split("\t");
-                ;
                 /* using the String create each piece of data so that all the instance variables
                          have a value accordingly
                  */
@@ -76,16 +75,14 @@ public class StudentData {
             while (it.hasNext()) {
                 /* accept the next item from the iterated list*/
                 Student item = it.next();
-                /*  complete the write() using String.format remember to separate each string with a tab
-                 */
+                /*  complete write() using String.format remember to separate each string with a tab*/
                 bw.write(String.format("%s\t%s\t%s\t%s\t%s",
                         item.getStudId(),
                         item.getYearOfStudy(),
                         item.getModule1(),
                         item.getModule2(),
                         item.getModule3()));
-                /* once a student item is written to the file ensure that the next item is stored on a new line
-                 */
+                /* once a student item is written to the file ensure that the next item is stored on a new line*/
                 bw.newLine();
             }
         } finally {

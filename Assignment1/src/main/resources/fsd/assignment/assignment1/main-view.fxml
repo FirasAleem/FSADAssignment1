@@ -21,7 +21,7 @@
     <top>
         <!--include a GridPane<> with a vertical and horizontal gap of 20-->
         <GridPane xmlns:fx="http://javafx.com/fxml" hgap="20" vgap="20"> <!--these correspond to the variables in the Controller-->
-            <!--include the labels, textfields and choicebox elements here-->
+            <!--include the labels, text fields and choice box elements here-->
             <!--include the Button<> with the onAction="addStudentData", no fx:id is required-->
             <!--the last element is the <Label> you may not notice this on the image-->
             <Label text="StudentID" GridPane.columnIndex="0" GridPane.rowIndex="0"/>

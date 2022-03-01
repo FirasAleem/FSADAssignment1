@@ -47,7 +47,7 @@ public class Controller {
 
     private String choice1, choice2, choice3;
 
-    private String modChoices[] = {"OOP", "Data Algo", "DS", "Maths", "AI",
+    private String[] modChoices = {"OOP", "Data Algo", "DS", "Maths", "AI",
             "Adv Programming", "Project"};
 
     @FXML
@@ -88,13 +88,13 @@ public class Controller {
 
     public void initialize() {
 
-        studentListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Student>() {
+        studentListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<>() {
             @Override
             public void changed(ObservableValue<? extends Student> observable, Student oldValue, Student newValue) {
                 /*  complete the code so that if a studId is selected then the changed()
                          should ensure that the other fields related to the selected item appear at the bottom of the window
                 */
-                if (newValue != null){
+                if (newValue != null) {
                     Student student = studentListView.getSelectionModel().getSelectedItem();
                     yearStudyView.setText(student.getYearOfStudy());
                     mod1View.setText(student.getModule1());
@@ -110,7 +110,7 @@ public class Controller {
         mod2Choice.setOnAction(this::getChoice);
         mod3Choice.setOnAction(this::getChoice);
 
-        /*      the array declared above for modChoices must be added to each Choicebox
+        /*      the array declared above for modChoices must be added to each Choice box
                  include the code here to addAll()
         */
         //insert the code to addAll() the modChoices [] to each ChoiceBox here
@@ -126,9 +126,9 @@ public class Controller {
         /*  create a MenuItem object so that when the user right-clicks a studId
                  the word Delete? appears
          */
-        MenuItem deleteStudent = new MenuItem("Delete");;
+        MenuItem deleteStudent = new MenuItem("Delete");
 
-        deleteStudent.setOnAction(new EventHandler<ActionEvent>() {
+        deleteStudent.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent event) {
                 /*  get the item to be deleted and call the deleteStudent()
@@ -147,11 +147,11 @@ public class Controller {
          */
         MenuItem editStudent = new MenuItem("Edit");
 
-        editStudent.setOnAction(new EventHandler<ActionEvent>() {
+        editStudent.setOnAction(new EventHandler<>() {
             @Override
             public void handle(ActionEvent event) {
                 /* get the item to be edited and call the editStudent()
-                */
+                 */
                 Student student = studentListView.getSelectionModel().getSelectedItem();
                 editStudent(student);
             }
@@ -162,9 +162,9 @@ public class Controller {
         listContextMenu.getItems().add(editStudent);
 
         //to ensure access to a particular cell in the studentListView
-        studentListView.setCellFactory(new Callback<ListView<Student>, ListCell<Student>>() {
+        studentListView.setCellFactory(new Callback<>() {
             public ListCell<Student> call(ListView<Student> param) {
-                ListCell<Student> cell = new ListCell<Student>() {
+                ListCell<Student> cell = new ListCell<>() {
                     @Override
                     protected void updateItem(Student stu, boolean empty) {
                         /* TODO: ?? ensure that the studentListView has studId's or not when
@@ -178,7 +178,7 @@ public class Controller {
                         }
                     }//end of update()
                 };
-                //code included as part of the delete
+                //code included as part of delete
                 cell.emptyProperty().addListener(
                         (obs, wasEmpty, isNowEmpty) -> {
                             if (isNowEmpty) {
@@ -195,7 +195,7 @@ public class Controller {
         */
 
         SortedList<Student> sortedByYear = new SortedList<>(StudentData.getInstance().getStudents(),
-                new Comparator<Student>() {
+                new Comparator<>() {
                     @Override
                     public int compare(Student o1, Student o2) {
                         return o1.getYearOfStudy().compareTo(o2.getYearOfStudy());
@@ -223,7 +223,7 @@ public class Controller {
 
     @FXML
     public void addStudentData() {
-        /*  get the values from the textfields
+        /*  get the values from the text fields
          */
         String studIdS = studId.getText();
         String yearStudyS = yearStudy.getText();
@@ -240,7 +240,7 @@ public class Controller {
             //use the getInstance() to addStudentData()
             //select the student that has been added so that it is highlighted on the list
             validateStudent.setText(null);
-            Student studentToAdd = new Student(studIdS, yearStudyS, choice1, choice2, choice3);
+            studentToAdd = new Student(studIdS, yearStudyS, choice1, choice2, choice3);
             StudentData.getInstance().addStudentData(studentToAdd);
             studentListView.getSelectionModel().select(studentToAdd);
         }
@@ -248,7 +248,7 @@ public class Controller {
 
     public void deleteStudent(Student stu) {
         /* create an alert object to confirm that a user wants to delete*/
-        Alert alert = new Alert((Alert.AlertType.CONFIRMATION));;
+        Alert alert = new Alert((Alert.AlertType.CONFIRMATION));
         /* set the title with "Delete a student from the list"*/
         alert.setTitle("Delete a student from the list");
         /* set the header text with "Deleting student " xxx - where xxx is the studId*/
@@ -269,7 +269,7 @@ public class Controller {
         Dialog<ButtonType> dialog = new Dialog<>();
         /*  use the dialog object to set the owner, the title and the header text
                  the title must state "Edit a student's details"
-                 the header text must state: Editing student Id: xxx - where xxx is the studId*/
+                 the header text must state: Editing student ID: xxx - where xxx is the studId*/
         dialog.initOwner(mainWindow.getScene().getWindow());
         dialog.setTitle("Edit a student's details");
         dialog.setHeaderText("Editing student Id: " + stu.getStudId());
